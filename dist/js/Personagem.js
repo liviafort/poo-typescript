@@ -2,18 +2,25 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Personagem = void 0;
 class Personagem {
-    //construtor
-    constructor() {
-        this.nome = "";
-        this.energia = 0;
-        this.vida = 0;
-        this.ataque = 0;
-        this.defesa = 0;
+    //atributos direto no construtor
+    constructor(nome, energia, vida, ataque, defesa) {
+        this.nome = nome;
+        this.energia = energia;
+        this.vida = vida;
+        this.ataque = ataque;
+        this.defesa = defesa;
+        this.nome = nome;
+        this.energia = energia;
+        this.vida = vida;
+        this.ataque = ataque;
+        this.defesa = defesa;
     }
     //metodos
     treinarAtaque() {
-        let ganho = Math.random() * (10 - 1) + 1;
-        return this.ataque += ganho;
+        if (this.ataque !== 100) {
+            return this.ataque += Math.random() * (10 - 1) + 1;
+        }
+        return this.ataque;
     }
 }
 exports.Personagem = Personagem;

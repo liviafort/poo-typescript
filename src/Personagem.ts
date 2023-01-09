@@ -1,21 +1,17 @@
 export class Personagem{
-  //atributos
-  nome;
-  energia;
-  vida;
-  ataque;
-  defesa;
-  //construtor
-  constructor(){
-    this.nome = "";
-    this.energia = 0;
-    this.vida = 0;
-    this.ataque = 0;
-    this.defesa = 0;
+  //atributos direto no construtor
+  constructor(public nome: string, public energia: number, public vida: number, public ataque: number, public defesa: number){
+    this.nome = nome;
+    this.energia = energia;
+    this.vida = vida;
+    this.ataque = ataque;
+    this.defesa = defesa;
   }
   //metodos
   treinarAtaque() : number{
-    let ganho: number = Math.random() * (10 - 1) + 1;
-    return this.ataque+=ganho;
+    if(this.ataque!==100){
+      return this.ataque+=Math.random() * (10 - 1) + 1;
+    }
+    return this.ataque;
   }
 }
