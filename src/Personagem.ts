@@ -6,15 +6,16 @@ export class Personagem{
   ataque;
   defesa;
   //construtor
-  constructor(nome: string, energia: number, vida: number, ataque: number, defesa: number){
-    this.nome = nome;
-    this.energia = energia;
-    this.vida = vida;
-    this.ataque = ataque;
-    this.defesa = defesa;
+  constructor(){
+    this.nome = "";
+    this.energia = 0;
+    this.vida = 0;
+    this.ataque = 0;
+    this.defesa = 0;
   }
   //metodos
-  treinarAtaque(ataque: number) : number{
-    return ataque;
+  treinarAtaque() : number{
+    let ganho: number = Math.random() * (10 - 1) + 1;
+    return this.ataque+=ganho;
   }
 }

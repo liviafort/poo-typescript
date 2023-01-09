@@ -3,16 +3,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Personagem = void 0;
 class Personagem {
     //construtor
-    constructor(nome, energia, vida, ataque, defesa) {
-        this.nome = nome;
-        this.energia = energia;
-        this.vida = vida;
-        this.ataque = ataque;
-        this.defesa = defesa;
+    constructor() {
+        this.nome = "";
+        this.energia = 0;
+        this.vida = 0;
+        this.ataque = 0;
+        this.defesa = 0;
     }
     //metodos
-    treinarAtaque(ataque) {
-        return ataque;
+    treinarAtaque() {
+        let ganho = Math.random() * (10 - 1) + 1;
+        return this.ataque += ganho;
     }
 }
 exports.Personagem = Personagem;
