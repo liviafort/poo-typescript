@@ -40,7 +40,8 @@ while (option != 9) {
                 option = 9.;
             }
         case 3:
-            ash.aumentoDeEnergia(10);
+            let horas = +teclado("Quantas horas o guerreiro ash deve descansar?");
+            ash.aumentoDeEnergia(horas);
             console.log(ash.imprimirAtributos());
             break;
         case 4:

@@ -1,76 +1,87 @@
 export default class Personagem{
   //atributos direto no construtor
-  constructor(public nome: string, public energia: number, public vida: number, public ataque: number, public defesa: number){
-    this.nome = nome;
-    this.energia = energia;
-    this.vida = vida;
-    this.ataque = ataque;
-    this.defesa = defesa;
+  constructor(private _nome: string, 
+    private _energia: number, 
+    private _vida: number, 
+    public _ataque: number, 
+    public _defesa: number){
   }
   //metodos
+  ////////////////////////GETS E SETS////////////////////////
+  public get nome(): string{
+    return this._nome;
+  }
+
+  public set nome(nome: string){
+    this._nome = nome;
+  }
   ////////////////////////////AÇÕES//////////////////////////
 
-  batalha() : void{
+  public batalha() : void{
     this.consumoEnergia();
     this.consumoVida();
   }
 
-  treinarAtaque() : number{
-    if(this.ataque<=100){
-      this.ataque+= Math.random() * 7;
+  public treinarAtaque() : number{
+    if(this._ataque<=100){
+      this._ataque+= this.randomizar(7);
     }
-    if(this.ataque > 100)
-      this.ataque = 100;
-    return this.ataque;
+    if(this._ataque > 100)
+      this._ataque = 100;
+    return this._ataque;
   }
 
-  treinarDefesa() : number{
-    if(this.defesa<=100){
-      this.defesa+= Math.random() * 7;
+  public treinarDefesa() : number{
+    if(this._defesa<=100){
+      this._defesa+= this.randomizar(7);
     }
-    if(this.defesa > 100)
-      this.defesa = 100;
-    return this.defesa;
+    if(this._defesa > 100)
+      this._defesa = 100;
+    return this._defesa;
   }
 
-  consumoVida() : number{
-    this.vida -= Math.random() * 30
-    return this.vida;
+  public consumoVida() : number{
+    this._vida -= this.randomizar(30);
+    return this._vida;
   }
 
-  consumoEnergia() : number{
-    this.energia -= Math.random() * 10
-    return this.energia;
+  public consumoEnergia() : number{
+    this._energia -= this.randomizar(10);
+    return this._energia;
   }
 
-  aumentoDeEnergia(dias: number) : number{
-    this.energia += dias;
-    if(this.energia > 100)
-      this.energia = 100;
-    return this.energia;
+  public aumentoDeEnergia(dias: number) : number{
+    this._energia += dias;
+    if(this._energia > 100)
+      this._energia = 100;
+    return this._energia;
   }
 
   /////////////////////VERIFICAÇÕES///////////////////////////
   
-  perdeuJogo(estado : boolean) : boolean {
-    if(this.energia <= 0){
+  public perdeuJogo(estado : boolean) : boolean {
+    if(this._energia <= 0){
       estado = true;
     }
     return estado;
   }
 
-  verificaPassouCemVida() {
-    if(this.vida > 100)
-      return this.vida = 100;
+  public verificaPassouCemVida() {
+    if(this._vida > 100)
+      return this._vida = 100;
+  }
+
+  private randomizar(intervalo: number) : number{
+    return Math.random() * intervalo;
   }
   ////////////////CARACTERÍSTICAS DO PERSONAGEM/////////////////////
-  imprimirAtributos() : string{
+  public imprimirAtributos() : string{
     return `
-      Guerreiro: ${this.nome}
-      Vida: ${this.vida.toFixed(1)}
-      Energia: ${this.energia.toFixed(1)}
-      Poder de Ataque: ${this.ataque.toFixed(1)}
-      Poder de Defesa: ${this.defesa.toFixed(1)}
+      Guerreiro: ${this._nome}
+      Vida: ${this._vida.toFixed(1)}
+      Energia: ${this._energia.toFixed(1)}
+      Poder de Ataque: ${this._ataque.toFixed(1)}
+      Poder de Defesa: ${this._defesa.toFixed(1)}
       `
   }
 }
