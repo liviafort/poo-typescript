@@ -1,5 +1,5 @@
 //poo - jogo
-import { Personagem } from "./Personagem";
+import  Personagem  from "./Personagem";
 import  prompt from "prompt-sync"; //pra ler dados do terminal
 
 //criar sem construtor -> (sem instancia)
@@ -14,34 +14,44 @@ while (option != 9) {
     console.log("|2. Treinar defesa                 |");
     console.log("|3. Descansar                      |");
     console.log("|4. Imprimir atributos             |");
+    console.log("|5. Batalhar                       |");
     console.log("|9. Sair                           |");
     console.log("+==================================+");
 
     option = +teclado("Escolha uma ação -> ");
     switch (option) {
         case 1:
-            ash.ataque += Math.random() * 7;
-            ash.energia -= Math.random() * 10;
-            ash.verificaPassouCemAtaque();
-            ash.verificaPassouCemEnergia();
-            ash.imprimirAtributos();
-            ash.perdeuJogo(false);
+            ash.treinarAtaque();
+            ash.consumoEnergia();
+            console.log(ash.imprimirAtributos());
+            if(ash.perdeuJogo(false)){
+              option = 9.
+            };
             break;
         case 2:
-            ash.defesa += Math.random() * 5;
-            ash.energia -= Math.random() * 8;
-            ash.verificaPassouCemDefesa();
-            ash.verificaPassouCemEnergia();
-            ash.imprimirAtributos();
-            ash.perdeuJogo(false);
+            ash.treinarDefesa();
+            ash.consumoEnergia();
+            console.log(ash.imprimirAtributos());
+            if(ash.perdeuJogo(false)){
+              option = 9.
+            }
         case 3:
-            ash.energia += Math.random() * 10;
-            ash.verificaPassouCemEnergia();
-            ash.imprimirAtributos();
+            ash.aumentoDeEnergia(10);
+            console.log(ash.imprimirAtributos());
             break;
         case 4:
-            ash.imprimirAtributos();
+            console.log(ash.imprimirAtributos());
+        case 5:
+            ash.batalha();
+            console.log(ash.imprimirAtributos());
+            if(ash.perdeuJogo(false)){
+              option = 9.
+            }
+            else{
+              console.log(`Você ganhou a batalha. Parabéns guerreiro ${ash.nome}!`);
+            }
         default:
             break;
     }
 }
+console.log("Fim de jogo, você morreu");
