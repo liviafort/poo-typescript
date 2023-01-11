@@ -1,6 +1,6 @@
 import { Util } from "./Util";
 
-export class Character{
+export abstract class Character{
   protected _nome: string;
   protected _armadura: number;
   protected _vidaMaxima: number;
@@ -11,7 +11,5 @@ export class Character{
     this._vidaMaxima = Util.randomizar(20, 1_000);
     this._vidaAtual = Util.randomizar(20, this._vidaMaxima);
 }
-  public atacar() : string{
-    return "";
-  }
+  public abstract atacar() : string;
 }

@@ -9,8 +9,5 @@ class Character {
         this._vidaMaxima = Util_1.Util.randomizar(20, 1000);
         this._vidaAtual = Util_1.Util.randomizar(20, this._vidaMaxima);
     }
-    atacar() {
-        return "";
-    }
 }
 exports.Character = Character;
