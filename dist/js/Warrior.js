@@ -13,5 +13,8 @@ class Warrior extends Character_1.Character {
         this._forca = Util_1.Util.randomizar(100, 1000);
         this._agilidade = Util_1.Util.randomizar(100, 1000);
     }
+    atacar() {
+        return "Ataque do guerreiro";
+    }
 }
 exports.Warrior = Warrior;

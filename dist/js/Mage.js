@@ -12,5 +12,8 @@ class Mage extends Character_1.Character {
         this._intelecto = Util_1.Util.randomizar(100, 1000);
         this._velocidade = Util_1.Util.randomizar(10, 2000);
     }
+    atacar() {
+        return "Ataque do mago";
+    }
 }
 exports.Mage = Mage;

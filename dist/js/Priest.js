@@ -12,5 +12,8 @@ class Priest extends Character_1.Character {
         this._espirito = Util_1.Util.randomizar(100, 1000);
         this._versatilidade = Util_1.Util.randomizar(100, 1000);
     }
+    atacar() {
+        return "Ataque do padre";
+    }
 }
 exports.Priest = Priest;
