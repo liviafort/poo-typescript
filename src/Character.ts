@@ -11,4 +11,7 @@ export class Character{
     this._vidaMaxima = Util.randomizar(20, 1_000);
     this._vidaAtual = Util.randomizar(20, this._vidaMaxima);
 }
+  public atacar() : string{
+    return "";
+  }
 }
